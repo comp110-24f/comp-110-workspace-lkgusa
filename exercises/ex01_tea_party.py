@@ -22,7 +22,11 @@ def tea_bags(people: int) -> int:
 
 def treats(people: int) -> int:
     """This function will compute the total number of treats needed so that each guest can have approximately 1.5 treats per cup of tea they drink"""
-    return tea_bags(int(people * 1.5))
+    # I actually got this return statement incorrect and went to office hours for help!
+    # My previous line was tea_bags(int(people * 1.5)) but that was incorrect because it was taking the value of people * 1.5 and inputting it into tea_bags instead of the people value into tea_bags and multiplying that whole value to get treats!
+    # I was only getting the correct value by chance due to integer rounding
+    # Thanks Sarah!!
+    return int(tea_bags(people) * 1.5)
 
 
 def cost(tea_count: int, treat_count: int) -> float:
