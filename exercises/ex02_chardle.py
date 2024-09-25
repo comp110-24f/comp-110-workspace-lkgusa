@@ -1,12 +1,10 @@
-"""Chardle, a more rudimentary version of Wordle that can be played in the terminal!"""
+"""EX02 - Chardle - A cute step toward Wordle."""
 
 __author__ = "730663471"
 
 
 def main() -> None:
     contains_char(word=input_word(), letter=input_letter())
-    exit()  # I added this exit function here because otherwise the main function kept repeating;
-    # After the count of letter in word were printed, I was prompted to Enter a 5-character word again and the cycle would repeat and you couldn't escape it was kind of overwhelming and scary
 
 
 def input_word() -> str:
@@ -32,32 +30,18 @@ def input_letter() -> str:
         return chosen_character
 
 
-def contains_char(word, letter) -> None:
-    index: int = 0  # Python should begin searching word at the first letter
-    count: int = 0  # The count of letter in word should begin at 0
+def contains_char(word: str, letter: str) -> None:
     print("Searching for " + str(letter) + " in " + str(word))
-    # Since while loops are not being used here, I think a series of if statements is a way for each index of word to be checked
-    # At first I tried to use elif within one if statement but you can't include the index += 1 line outside of the if indent and then try to add an elif line after the index += 1 line, there is an error indication
-    if word[index] == letter:
-        print(str(letter) + " found at index " + str(index))
-        count += 1  # Since there was an instance of letter found, add 1 to count
-    index += 1
-    if word[index] == letter:
-        print(str(letter) + " found at index " + str(index))
-        count += 1
-    index += 1
-    if word[index] == letter:
-        print(str(letter) + " found at index " + str(index))
-        count += 1
-    index += 1
-    if word[index] == letter:
-        print(str(letter) + " found at index " + str(index))
-        count += 1
-    index += 1
-    if word[index] == letter:
-        print(str(letter) + " found at index " + str(index))
-        count += 1
-    index += 1
+    index: int = 0
+    count: int = 0
+    while index < len(word) - 1:
+        if word[index] == letter:
+            count += 1
+            print(str(letter) + " found at index " + str(index))
+            index += 1
+        else:
+            index += 1
+
     if count == 0:  # If no letter was found in word, print no instances
         print("No instances of " + str(letter) + " found in " + str(word))
     elif count == 1:  # If only 1 letter was found in word, print count INSTANCE
@@ -65,8 +49,6 @@ def contains_char(word, letter) -> None:
     else:  # If more than 1 letter was found in word, print count INSTANCES
         print(str(count) + " instances of " + str(letter) + " found in " + str(word))
 
-
-main()  # Calling the main function
 
 if __name__ == "__main__":
     main()
