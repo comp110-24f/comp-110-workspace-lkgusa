@@ -30,10 +30,18 @@ def f_sum(vals: list[float]) -> float:
 def f_range_sum(vals: list[float]) -> float:
     total = 0.0
     for values in range(0, len(vals)):
-        # It turns out that here, total += values does not work like it does without using range(),
-        # you actually have to specify to add the value at the index of vals the function is at currently in order for total to be updated after each element in the list
-        # This is because total += values iterates over the numbers that range creates, not the actual elements in vals, and ends up adding the integers from range to total
-        # In order to specify the loop to iterate over the vals elements, you need to say total += vals[values] to tell python to add each element in the vals list to total as it progresses as many times as are in range(0, len(vals))
+        # It turns out that here, total += values does not work
+        # like it does without using range(),
+        # you actually have to specify to add the value at the index of vals
+        # the function is at currently in order for total to be updated
+        # after each element in the list
+        # This is because total += values iterates over the numbers that range creates,
+        # not the actual elements in vals, and ends up adding
+        # the integers from range to total
+        # In order to specify the loop to iterate over the vals elements,
+        # you need to say total += vals[values] to tell python to add each element
+        # in the vals list to total as it progresses as many times
+        # as are in range(0, len(vals))
         total += vals[values]
     return total
 

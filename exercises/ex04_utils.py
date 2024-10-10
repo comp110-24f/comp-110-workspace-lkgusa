@@ -6,6 +6,9 @@ __author__ = "730663471"
 def all(items: list[int], num: int) -> bool:
     index: int = 0
     count: int = 0
+    if len(items) == 0:
+        # If items is an empty list, return False
+        return False
     while index < len(items):
         if items[index] == num:
             count += 1
