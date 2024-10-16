@@ -10,6 +10,7 @@ def test_only_evens_new_list() -> None:
 def test_only_evens_no_mutation() -> None:
     """Tests whether only_evens doesn't mutate original list"""
     pi: list[int] = [3, 1, 4]
+    only_evens(pi)
     assert pi == [3, 1, 4]
 
 
@@ -34,7 +35,7 @@ def test_sub_correct_range() -> None:
 def test_sub_no_mutation() -> None:
     """Tests that sub will not modify the original list"""
     e: list[int] = [2, 7, 1]
-    assert e == [2, 7, 1]
+    assert sub(e, 0, 1) == [2]
 
 
 def test_add_at_index_edge_case() -> None:
