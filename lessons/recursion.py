@@ -26,6 +26,7 @@ def sum(head: Node | None) -> int:
 
 
 def to_str(head: Node | None) -> str:
+    """Represent a linked list as a str."""
     if head is None:
         return "None"
     else:
